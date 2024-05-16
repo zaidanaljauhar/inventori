@@ -8,18 +8,18 @@ import dao.daoBarang;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.*;
-import view.FormBarang;
+import view.FromBarang;
 /**
  *
  * @author user
  */
 public class controllerBarang {
-    FormBarang frame;
+    FromBarang frame;
     List<Barang> listBrg;
     daoBarang daoBrg = new daoBarang();
     Barang brg = new Barang();
 
-    public controllerBarang(FormBarang frame){
+    public controllerBarang(FromBarang frame){
         this.frame = frame;
         listBrg = daoBrg.getData();
     }
@@ -30,14 +30,14 @@ public class controllerBarang {
     }
 
     public void tambahData(){
-        if(frame.getTxtKode().getText().equals("")){
+        if (frame.getTxtKode().getText().equals("")){
             JOptionPane.showMessageDialog(null, "Kode Barang belum diisi");
 
         }else {
             brg.setKode(frame.getTxtKode().getText());
             brg.setNama(frame.getTxtNama().getText());
             brg.setJumlah(Integer.parseInt(frame.getTxtJumlah().getText()));
-            brg.setHarga(Integer.parseInt(frame.getTxtJumlah().getText()));
+            brg.setHarga(Integer.parseInt(frame.getTxtHarga().getText()));
             brg.setMerek(frame.getTxtMerek().getText());
             daoBrg.tambah(brg);
             JOptionPane.showMessageDialog(frame, "Berhasil menambahkan data baru");
@@ -53,7 +53,7 @@ public class controllerBarang {
             brg.setKode(frame.getTxtKode().getText());
             brg.setNama(frame.getTxtNama().getText());
             brg.setJumlah(Integer.parseInt(frame.getTxtJumlah().getText()));
-            brg.setHarga(Integer.parseInt(frame.getTxtJumlah().getText()));
+            brg.setHarga(Integer.parseInt(frame.getTxtHarga().getText()));
             brg.setMerek(frame.getTxtMerek().getText());
             daoBrg.ubah(brg);
             JOptionPane.showMessageDialog(frame, "Berhasil menambahkan data baru");
@@ -78,6 +78,4 @@ public class controllerBarang {
     public void keluar(){
         frame.dispose();
     }
-
-
 }

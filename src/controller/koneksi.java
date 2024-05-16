@@ -16,7 +16,7 @@ public class koneksi {
     public static Connection connection() {
         if (kon == null) {
             MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName("toko");
+            data.setDatabaseName("inventori");
             data.setUser("root");
             data.setPassword("");
             try {
