@@ -6,11 +6,11 @@ package model;
 
 /**
  *
- * @author user
+ * @author User
  */
 public class Barang {
-    private String kode,nama,merek;
-    private int jumlah,harga;
+    private String kode, nama, merek;
+    private int jumlah, harga;
     
     public String getKode(){
         return kode;
@@ -20,36 +20,36 @@ public class Barang {
         this.kode = kode;
     }
     
-   public String getNama(){
-       return nama;
+    public String getNama(){
+        return nama;
     }
     
     public void setNama(String nama){
         this.nama = nama;
     }
     
-    public String getMerek(){
-         return merek;
+    public String getMerek() {
+        return merek;
     }
     
-    public void setMerek(String merek){
+    public void setMerek(String merek) {
         this.merek = merek;
     }
-     
+    
     public int getJumlah(){
-         return jumlah;
+        return jumlah;
     }
     
-    public void setJumlah(int jumlah){
+    public void setJumlah(int jumlah) {
         this.jumlah = jumlah;
     }
-     
+    
     public int getHarga(){
-         return harga;
+        return harga;
     }
-     
+    
     public void setHarga(int harga){
         this.harga = harga;
     }
-     
+
 }

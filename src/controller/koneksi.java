@@ -6,24 +6,26 @@ package controller;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
+
 /**
  *
- * @author user
+ * @author USER
  */
 public class koneksi {
     static Connection kon;
     
-    public static Connection connection() {
-        if (kon == null) {
+    public static Connection connection(){
+        if (kon == null){
             MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName("inventori");
+            data.setDatabaseName("toko");
             data.setUser("root");
             data.setPassword("");
-            try {
+            try{
                 kon = data.getConnection();
                 System.out.println("sudah konek");
-            } catch (Exception e) {
-                System.out.println("tidak konek");
+            }  catch (Exception e){
+                      System.out.println("tidak konek");
+                        
             }
         }
         return kon;

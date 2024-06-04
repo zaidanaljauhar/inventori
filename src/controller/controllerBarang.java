@@ -8,73 +8,70 @@ import dao.daoBarang;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.*;
-import view.FromBarang;
+import view.FormBarang;
+
 /**
  *
- * @author user
+ * @author USER
  */
 public class controllerBarang {
-    FromBarang frame;
+    FormBarang frame;
     List<Barang> listBrg;
     daoBarang daoBrg = new daoBarang();
     Barang brg = new Barang();
-
-    public controllerBarang(FromBarang frame){
+    
+    public controllerBarang(FormBarang frame){
         this.frame = frame;
         listBrg = daoBrg.getData();
     }
-
+    
     public void tampil_tabel(){
-        TabelModelBarang tabelBrg = new TabelModelBarang(listBrg);
+        TableModelBarang tabelBrg = new TableModelBarang(listBrg);
         frame.getTblBarang().setModel(tabelBrg);
     }
-
+    
     public void tambahData(){
         if (frame.getTxtKode().getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Kode Barang belum diisi");
-
-        }else {
+            JOptionPane.showMessageDialog(null, "Kode barang belum diisi");
+        } else {
             brg.setKode(frame.getTxtKode().getText());
             brg.setNama(frame.getTxtNama().getText());
             brg.setJumlah(Integer.parseInt(frame.getTxtJumlah().getText()));
             brg.setHarga(Integer.parseInt(frame.getTxtHarga().getText()));
             brg.setMerek(frame.getTxtMerek().getText());
             daoBrg.tambah(brg);
-            JOptionPane.showMessageDialog(frame, "Berhasil menambahkan data baru");
+            JOptionPane.showMessageDialog(frame, "Data berhasil di simpan");
         }
     }
-
-
-     public void ubahData(){
-        if(frame.getTxtKode().getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Kode Barang belum diisi");
-
-        }else {
+    
+    public void ubahData(){
+        if (frame.getTxtKode().getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Kode barang belum diisi");
+        } else {
             brg.setKode(frame.getTxtKode().getText());
             brg.setNama(frame.getTxtNama().getText());
             brg.setJumlah(Integer.parseInt(frame.getTxtJumlah().getText()));
             brg.setHarga(Integer.parseInt(frame.getTxtHarga().getText()));
             brg.setMerek(frame.getTxtMerek().getText());
             daoBrg.ubah(brg);
-            JOptionPane.showMessageDialog(frame, "Berhasil menambahkan data baru");
+            JOptionPane.showMessageDialog(frame, "Data berhasil di ubah");
         }
     }
-
-     public void hapusData(){
-         brg.setKode(frame.getTxtKode().getText());
-         daoBrg.hapus(brg);
-         JOptionPane.showMessageDialog(frame, "Berhasil Mengahpaus data");
-     }
-
-    public void bersih(){
+    
+    public void hapusData(){
+        brg.setKode(frame.getTxtKode().getText());
+        daoBrg.hapus(brg);
+        JOptionPane.showMessageDialog(frame, "Data berhasil di hapus");
+    }
+    
+    public void bersih() {
         frame.setTxtKode("");
         frame.setTxtNama("");
         frame.setTxtJumlah(0);
         frame.setTxtHarga(0);
         frame.setTxtMerek("");
     }
-
-
+    
     public void keluar(){
         frame.dispose();
     }
